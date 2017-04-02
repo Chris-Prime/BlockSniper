@@ -20,15 +20,33 @@ abstract class BaseShape {
 	const SHAPE_CYLINDER = 2;
 	const SHAPE_CUBOID = 3;
 	
+	/** @var Level */
 	public $level;
+	
+	/** @var Player */
 	public $player;
+	
+	/** @var mixed */
 	public $main;
 	
+	/** @var float */
 	protected $width;
-	protected $radius;
-	protected $center;
-	protected $hollow;
 	protected $height;
+	
+	/** @var int */
+	protected $radius;
+	
+	/** @var boolean */
+	protected $hollow;
+	
+	/** @var Position */
+	protected $center;
+	
+	public function __construct(Player $player, Level $level, Position $center) {
+		$this->player = $player;
+		$this->level = $level;
+		$this->position = $center;
+	}
 	
 	/**
 	 * @param string $shape
