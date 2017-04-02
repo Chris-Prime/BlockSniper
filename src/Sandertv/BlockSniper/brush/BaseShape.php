@@ -141,6 +141,18 @@ abstract class BaseShape {
 	}
 	
 	/**
+	 * Returns the height in case of a CylinderShape or CuboidShape.
+	 *
+	 * @return float|null
+	 */
+	public function getHeight(): float {
+		if($this instanceof CylinderShape || $this instanceof CuboidShape) {
+			return $this->height;
+		}
+		return null;
+	}
+	
+	/**
 	 * Returns the radius in case of a SphereShape or CylinderShape.
 	 *
 	 * @return float|null
@@ -165,20 +177,14 @@ abstract class BaseShape {
 	 * Returns true if the shape is hollow, false if it is not.
 	 *
 	 * @return bool
+	 * @deprecated
 	 */
 	public function getHollow(): bool {
 		return $this->hollow;
 	}
 	
-	/**
-	 * Returns the height in case of a CylinderShape or CuboidShape.
-	 *
-	 * @return int|null
-	 */
-	public function getHeight(): int {
-		if($this instanceof CylinderShape || $this instanceof CuboidShape) {
-			return $this->height;
-		}
-		return null;
+	public function isHollow(): bool {
+		return $this->hollow;	
 	}
+	
 }
